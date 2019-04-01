@@ -41,7 +41,9 @@ public class HTTPUtil {
 			for(BallotBox bb : ballotBoxList){
 				System.out.println("Processing " + bb);
 				try {
-					BallotBox ballotBox = getBallotBoxResult("34",district.getCode(),bb.getCode());
+//					if(bb.getCode().equals("3215055")){
+						BallotBox ballotBox = getBallotBoxResult("34",district.getCode(),bb.getCode());
+//					}
 				} catch (Exception e) {
 					System.err.println(e.getMessage());
 				}
@@ -61,7 +63,7 @@ public class HTTPUtil {
 		LAST_HIDDEN_INPUTS_MAP.put("__EVENTTARGET", "");
 		LAST_HIDDEN_INPUTS_MAP.put("__EVENTARGUMENT", "");
 		LAST_HIDDEN_INPUTS_MAP.put("__LASTFOCUS", "");
-		HttpResponse sandikDoc = sendRequest(CHP_SECIM_URL, Method.POST, LAST_HIDDEN_INPUTS_MAP);
+		HttpResponse sandikDoc = sendRequest(CHP_SECIM_URL, Method.POST, LAST_HIDDEN_INPUTS_MAP,false);
 		BallotBox ballotBox = new BallotBox("", ballotBoxId);
 		return ballotBox ;
 	}
@@ -71,7 +73,7 @@ public class HTTPUtil {
 		LAST_HIDDEN_INPUTS_MAP.put("ddlIller", cityCode);
 		LAST_HIDDEN_INPUTS_MAP.put("ddlIlceler", districtCode);
 		LAST_HIDDEN_INPUTS_MAP.put("__EVENTTARGET", "ddlIlceler");
-		HttpResponse sandikListDoc = sendRequest(CHP_SECIM_URL, Method.POST, LAST_HIDDEN_INPUTS_MAP);
+		HttpResponse sandikListDoc = sendRequest(CHP_SECIM_URL, Method.POST, LAST_HIDDEN_INPUTS_MAP,true);
 		List<KeyValueModel> options = parseHtmlOptions(sandikListDoc.getDocument(), "ddlSandiklar");
 		return options.stream().map(o -> new BallotBox(o.getText(), o.getCode())).collect(Collectors.toList());
 	}
@@ -81,7 +83,7 @@ public class HTTPUtil {
 		LAST_HIDDEN_INPUTS_MAP.put("rdveriKaynagi", "2");
 		LAST_HIDDEN_INPUTS_MAP.put("ddlIller", cityCode);
 		LAST_HIDDEN_INPUTS_MAP.put("__EVENTTARGET", "ddlIller$1");
-		HttpResponse districtsDoc = sendRequest(CHP_SECIM_URL, Method.POST, LAST_HIDDEN_INPUTS_MAP);
+		HttpResponse districtsDoc = sendRequest(CHP_SECIM_URL, Method.POST, LAST_HIDDEN_INPUTS_MAP,true);
 		List<KeyValueModel> options = parseHtmlOptions(districtsDoc.getDocument(), "ddlIlceler");
 		return options.stream().map(o -> new District(o.getText(), o.getCode())).collect(Collectors.toList());
 	}
@@ -92,14 +94,14 @@ public class HTTPUtil {
 		LAST_HIDDEN_INPUTS_MAP.put("rdveriKaynagi", "2");
 		LAST_HIDDEN_INPUTS_MAP.put("txtTCKN", "");
 		LAST_HIDDEN_INPUTS_MAP.put("__EVENTTARGET", "rdveriKaynagi$1");
-		HttpResponse citiesDoc = sendRequest(CHP_SECIM_URL, Method.POST, LAST_HIDDEN_INPUTS_MAP);
+		HttpResponse citiesDoc = sendRequest(CHP_SECIM_URL, Method.POST, LAST_HIDDEN_INPUTS_MAP,true);
 		List<KeyValueModel> options = parseHtmlOptions(citiesDoc.getDocument(), "ddlIller");
 		return options.stream().map(o -> new City(o.getText(), o.getCode())).collect(Collectors.toList());
 	}
 
 	private static void openMainPage() throws IOException {
 		// login
-		sendRequest(CHP_SECIM_URL,Method.GET,null);
+		sendRequest(CHP_SECIM_URL,Method.GET,null,true);
 		System.out.println("login done");
 	}
 
@@ -116,7 +118,7 @@ public class HTTPUtil {
 		return retList;
 	}
 
-	private static HttpResponse sendRequest(String url,Method method, Map<String, String> dataMap) throws IOException {
+	private static HttpResponse sendRequest(String url,Method method, Map<String, String> dataMap,boolean overrideCookies) throws IOException {
 		Connection connection = Jsoup.connect(url).method(method).timeout(0);
 		connection.header("Connection", "keep-alive");
 		connection.header("Upgrade-Insecure-Requests", "1");
@@ -132,7 +134,9 @@ public class HTTPUtil {
 		}
 		
 		Response response = connection.execute();
-		CHP_COOKIES = response.cookies();
+		if(overrideCookies){
+			CHP_COOKIES = response.cookies();
+		}
 		
 		Document doc = response.parse();
 		LAST_HIDDEN_INPUTS_MAP.clear();
