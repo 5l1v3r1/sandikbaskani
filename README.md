@@ -25,12 +25,17 @@ Content Cell | Content Cell
 
 ----------
 
-Sandık	|	Ysk Zamanı	|	Kullanılan oy	|	Geçerli oy	|	Geçersiz oy	|	İşlenmemiş oy	|	CHP	|	AKP	|	Hata
+Sandık						|	Ysk Zamanı	|	Kullanılan oy	|	Geçerli oy	|	Geçersiz oy	|	İşlenmemiş oy	|	CHP	|	AKP	|	Hata
 İSTANBUL/ARNAVUTKÖY/1001	|	31.03.2019 23:52:48	|	289	|	265	|	24	|	21	|	0	|	135	|	CHP oyları sıfır
+
 Sandık	|	Ysk Zamanı	|	Kullanılan oy	|	Geçerli oy	|	Geçersiz oy	|	İşlenmemiş oy	|	CHP	|	AKP	|	Hata
 İSTANBUL/ARNAVUTKÖY/1002	|	31.03.2019 23:05:56	|	299	|	277	|	22	|	7	|	0	|	159	|	CHP oyları sıfır
+
+
 Sandık	|	Ysk Zamanı	|	Kullanılan oy	|	Geçerli oy	|	Geçersiz oy	|	İşlenmemiş oy	|	CHP	|	AKP	|	Hata
 İSTANBUL/ARNAVUTKÖY/1003	|	31.03.2019 22:59:54	|	296	|	281	|	15	|	21	|	0	|	138	|	CHP oyları sıfır
+
+
 Sandık	|	Ysk Zamanı	|	Kullanılan oy	|	Geçerli oy	|	Geçersiz oy	|	İşlenmemiş oy	|	CHP	|	AKP	|	Hata
 İSTANBUL/ARNAVUTKÖY/1004	|	1.04.2019 00:06:20	|	286	|	272	|	14	|	18	|	0	|	149	|	CHP oyları sıfır
 Sandık	|	Ysk Zamanı	|	Kullanılan oy	|	Geçerli oy	|	Geçersiz oy	|	İşlenmemiş oy	|	CHP	|	AKP	|	Hata
