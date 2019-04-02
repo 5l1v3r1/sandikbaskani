@@ -19,6 +19,9 @@ bu repodaki program ile sonuçlar otomatik olarak ayıklanmıştır.
 
 
 ----------
+<details>
+  <summary>ARNAVUTKÖY</summary>
+  
 
 * İSTANBUL/ARNAVUTKÖY/1001 sandık sonuçları:
     * Ysk zamanı            : 31.03.2019 23:52:48
@@ -80,3 +83,4 @@ bu repodaki program ile sonuçlar otomatik olarak ayıklanmıştır.
     * AKP                   : 156
     * Hata                  : CHP oyları sıfır
 ----------
+</details>
