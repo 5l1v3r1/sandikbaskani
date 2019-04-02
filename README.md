@@ -20,11 +20,6 @@ bu repodaki program ile sonuçlar otomatik olarak ayıklanmıştır.
 
 ----------
 <details>
-<summary>ADALAR (39 adet sandık)</summary>
-* Sandık sonuçlarında sorun bulunmamaktadır 
-</details>
-
-<details>
 <summary>ARNAVUTKÖY (524 adet sandık)</summary>
 * İSTANBUL/ARNAVUTKÖY/1001 sandık sonuçları:
     * Ysk zamanı            : 31.03.2019 23:52:48
@@ -107,4 +102,9 @@ bu repodaki program ile sonuçlar otomatik olarak ayıklanmıştır.
     * Hata                  : CHP oyları sıfır
 ----------
 
+</details>
+
+<details>
+<summary>ADALAR (39 adet sandık)</summary>
+* Sandık sonuçlarında sorun bulunmamaktadır 
 </details>
