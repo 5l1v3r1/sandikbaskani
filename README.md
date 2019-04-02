@@ -19,5 +19,5 @@ bu repodaki program ile sonuçlar otomatik olarak ayıklanmıştır.
 
 ----------
 
-2019-04-02 15:21:39.183 | http proxy initialized..
+http proxy initialized..
 2019-04-02 15:21:40.324 | Giriş yapıldı
