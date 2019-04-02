@@ -23,6 +23,7 @@ bu repodaki program ile sonuçlar otomatik olarak ayıklanmıştır.
 <summary>ADALAR (39 adet sandık)</summary>
 <p>Sandık sonuçlarında sorun bulunmamaktadır</p>
 </details>
+
 <details>
 <summary>ARNAVUTKÖY (524 adet sandık)</summary>
 * İSTANBUL/ARNAVUTKÖY/1001 sandık sonuçları:
