@@ -21,10 +21,10 @@ bu repodaki program ile sonuçlar otomatik olarak ayıklanmıştır.
 ----------
 
 
-##ADALAR (39 adet sandık) ##
+## ADALAR (39 adet sandık) ##
 <p>Sandık sonuçlarında sorun bulunmamaktadır</p>
 ----------
-##ARNAVUTKÖY (524 adet sandık) ##
+## ARNAVUTKÖY (524 adet sandık) ##
 * İSTANBUL/ARNAVUTKÖY/1001 sandık sonuçları:
     * Ysk zamanı            : 31.03.2019 23:52:48
     * Kullanılan oy sayısı  : 289
