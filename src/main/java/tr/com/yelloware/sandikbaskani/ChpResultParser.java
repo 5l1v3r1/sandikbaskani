@@ -31,8 +31,7 @@ public class ChpResultParser {
     try {
       for (District district : districtList) {
         List<BallotBox> ballotBoxList = chpSession.listBallotBoxes(cityCodeOfIstanbul, district.getCode());
-        log.info("<details>");
-        log.info("<summary>{} ({} adet sandık)</summary>", district.getText(), ballotBoxList.size());
+        log.info("##{} ({} adet sandık) ##", district.getText(), ballotBoxList.size());
         boolean notValidBoxExists = false;
         for (BallotBox bb : ballotBoxList) {
           BallotBoxResult result = chpSession.getBallotBoxResult(cityCodeOfIstanbul, district.getCode(), bb);
@@ -61,7 +60,7 @@ public class ChpResultParser {
         if (!notValidBoxExists) {
           log.info("<p>Sandık sonuçlarında sorun bulunmamaktadır</p>");
         }
-        log.info("</details>");
+        log.info("----------");
       }
     } finally {
       log.info("Toplam {} adet sandık bulundu", boxCount);
