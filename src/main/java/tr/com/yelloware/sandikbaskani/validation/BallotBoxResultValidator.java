@@ -1,6 +1,7 @@
 package tr.com.yelloware.sandikbaskani.validation;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import lombok.experimental.UtilityClass;
 import tr.com.yelloware.sandikbaskani.model.BallotBoxResult;
 import tr.com.yelloware.sandikbaskani.model.type.PartyType;
@@ -43,8 +44,10 @@ public class BallotBoxResultValidator {
       result.setNotMatchVoteParty(PartyType.AKP);
     }
     if (!NumberUtil.isGreaterThenZero(result.getChpVoteCount())) {
-      result.getValidationErrorList().add("CHP oyları sıfır");
-      result.setNotMatchVoteParty(PartyType.CHP);
+      if (Objects.isNull(result.getNotMatchVoteParty())) {
+        result.getValidationErrorList().add("CHP oyları sıfır");
+        result.setNotMatchVoteParty(PartyType.CHP);
+      }
     }
   }
 
