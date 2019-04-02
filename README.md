@@ -19,6 +19,16 @@ bu repodaki program ile sonuçlar otomatik olarak ayıklanmıştır.
 
 2019-04-02 15:21:39.183 | http proxy initialized..
 
+2019-04-02 15:33:15.425 | İSTANBUL/ARNAVUTKÖY/1524 sandık sonuçları:
+2019-04-02 15:33:15.425 | 	Ysk zamanı 31.03.2019 22:58:25
+2019-04-02 15:33:15.425 | 	Kullanılan oy sayısı 288
+2019-04-02 15:33:15.425 | 	Geçerli oy sayısı 280
+2019-04-02 15:33:15.425 | 	Geçersiz oy sayısı 8
+2019-04-02 15:33:15.425 | 	İşlenmemiş oy sayısı 3
+2019-04-02 15:33:15.425 | 	CHP 0
+2019-04-02 15:33:15.425 | 	AKP 154
+2019-04-02 15:33:15.425 | 	Hatalar:
+2019-04-02 15:33:15.425 | 	**CHP oyları sıfır
 ----------
 
 
