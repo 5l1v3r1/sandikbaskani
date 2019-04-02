@@ -18,6 +18,11 @@ bu repodaki program ile sonuçlar otomatik olarak ayıklanmıştır.
 * Sorunlu sandıklar için sonuçları ekrana basar.
 
 
+First Header | Second Header
+------------- | -------------
+Content Cell | Content Cell
+Content Cell | Content Cell
+
 ----------
 
 Sandık	|	Ysk Zamanı	|	Kullanılan oy	|	Geçerli oy	|	Geçersiz oy	|	İşlenmemiş oy	|	CHP	|	AKP	|	Hata
