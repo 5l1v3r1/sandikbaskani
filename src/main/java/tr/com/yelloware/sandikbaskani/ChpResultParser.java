@@ -31,7 +31,9 @@ public class ChpResultParser {
     try {
       for (District district : districtList) {
         List<BallotBox> ballotBoxList = chpSession.listBallotBoxes(cityCodeOfIstanbul, district.getCode());
-        log.info("İlçe {}: Sandık Toplam {}", district, ballotBoxList.size());
+        log.info("<details>");
+        log.info("<summary>{} ({} adet sandık)</summary>", district.getText(), ballotBoxList.size());
+        boolean notValidBoxExists = false;
         for (BallotBox bb : ballotBoxList) {
           BallotBoxResult result = chpSession.getBallotBoxResult(cityCodeOfIstanbul, district.getCode(), bb);
           boxCount++;
@@ -39,28 +41,7 @@ public class ChpResultParser {
           if (result.getValidationErrorList().isEmpty()) {
             continue;
           }
-
-          // log.info(
-          // "Sandık" + MD_COL_SEP +
-          // "Ysk Zamanı" + MD_COL_SEP +
-          // "Kullanılan oy" + MD_COL_SEP +
-          // "Geçerli oy" + MD_COL_SEP +
-          // "Geçersiz oy" + MD_COL_SEP +
-          // "İşlenmemiş oy" + MD_COL_SEP +
-          // "CHP" + MD_COL_SEP +
-          // "AKP" + MD_COL_SEP +
-          // "Hata");
-          // log.info(
-          // result.getTitle() + MD_COL_SEP +
-          // result.getYskReceiveTime() + MD_COL_SEP +
-          // result.getTotalVoteCount() + MD_COL_SEP +
-          // result.getValidVoteCount() + MD_COL_SEP +
-          // result.getNotValidVoteCount() + MD_COL_SEP +
-          // result.getNotMatchVoteCount() + MD_COL_SEP +
-          // result.getChpVoteCount() + MD_COL_SEP +
-          // result.getAmpulVoteCount() + MD_COL_SEP +
-          // result.getValidationErrorList().get(0));
-
+          notValidBoxExists = true;
           log.info("* {} sandık sonuçları:", result.getTitle());
           log.info("    * Ysk zamanı            : {}", result.getYskReceiveTime());
           log.info("    * Kullanılan oy sayısı  : {}", result.getTotalVoteCount());
@@ -77,6 +58,10 @@ public class ChpResultParser {
             chpCount += result.getNotMatchVoteCount();
           }
         }
+        if (!notValidBoxExists) {
+          log.info("<p>Sandık sonuçlarında sorun bulunmamaktadır</p>");
+        }
+        log.info("</details>");
       }
     } finally {
       log.info("Toplam {} adet sandık bulundu", boxCount);
