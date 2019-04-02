@@ -3,6 +3,7 @@ package tr.com.yelloware.sandikbaskani.model;
 import java.util.List;
 import lombok.Builder;
 import lombok.Data;
+import tr.com.yelloware.sandikbaskani.model.type.PartyType;
 
 @Data
 @Builder
@@ -37,5 +38,7 @@ public class BallotBoxResult {
   private Long independentVoteCount;
 
   private List<String> validationErrorList;
+
+  private PartyType notMatchVoteParty;
 
 }

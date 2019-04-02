@@ -3,6 +3,7 @@ package tr.com.yelloware.sandikbaskani.validation;
 import java.util.ArrayList;
 import lombok.experimental.UtilityClass;
 import tr.com.yelloware.sandikbaskani.model.BallotBoxResult;
+import tr.com.yelloware.sandikbaskani.model.type.PartyType;
 import tr.com.yelloware.sandikbaskani.util.NumberUtil;
 
 @UtilityClass
@@ -39,9 +40,11 @@ public class BallotBoxResultValidator {
   private static void validateZeroVote(BallotBoxResult result) {
     if (!NumberUtil.isGreaterThenZero(result.getAmpulVoteCount())) {
       result.getValidationErrorList().add("AKP oyları sıfır");
+      result.setNotMatchVoteParty(PartyType.AKP);
     }
     if (!NumberUtil.isGreaterThenZero(result.getChpVoteCount())) {
       result.getValidationErrorList().add("CHP oyları sıfır");
+      result.setNotMatchVoteParty(PartyType.CHP);
     }
   }
 
